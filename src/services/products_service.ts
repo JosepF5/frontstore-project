@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://tourapplication-tz-production.up.railway.app/get/products";
+const baseURL = "https://tourapplication-tz-production.up.railway.app";
 
 interface Product {
   id: string;
@@ -11,14 +11,17 @@ interface Product {
   max: number;
 }
 
-export const getProducts = (): Promise<Product[]> => {
-  return axios.get<Product[]>(baseURL).then((response) => response.data);
+export const getProducts = async (): Promise<Product[]> => {
+  const response = await axios.get<Product[]>(`${baseURL}/get/products`);
+  return response.data;
 };
 
-export const createProduct = (Product: Product): Promise<Product> => {
-  return axios.post<Product>("https://tourapplication-tz-production.up.railway.app/create/product", Product).then((response) => response.data);
+export const createProduct = async (Product: Product): Promise<Product> => {
+  const response = await axios.post<Product>(`${baseURL}/create/product`, Product);
+  return response.data;
 };
 
-export const deleteProduct = (id: number): Promise<Product> => {
-  return axios.delete(`${baseURL}/${id}`).then((response) => response.data);
+export const deleteProduct = async (id: string): Promise<Product> => {
+  const response = await axios.delete(`${baseURL}/delete/product/${id}`);
+  return response.data;
 };

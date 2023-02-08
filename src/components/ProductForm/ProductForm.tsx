@@ -32,7 +32,7 @@ const ProductForm: React.FC = () => {
       .then((createdProduct) => {
         console.log("User created:", createdProduct);
         setProduct({
-          id: "######",
+          id: Math.floor(Math.random() *100000+999999).toString(),
           name: "",
           inInventory: 0,
           enabled: false,
