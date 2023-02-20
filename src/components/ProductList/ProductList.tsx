@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from 'react';
-import { getProducts } from "../../services/products_service";
+import React from "react";
 import Product from "../Product/Product";
 
 interface Producto {
@@ -12,16 +10,16 @@ interface Producto {
   max: number;
 }
 interface Props {
-    products: Producto[];
-  }
-const ProductList: React.FC<Props> = ({products}) => {
-    return  (
-      <div>
-        {products.map((product) => (
-          <Product key={product.id} product={product}/>
-        ))}
-      </div>
-    );
+  products: Producto[];
+}
+const ProductList: React.FC<Props> = ({ products }) => {
+  return (
+    <div>
+      {products.map((product) => (
+        <Product key={product.id} product={product} />
+      ))}
+    </div>
+  );
 };
 
 export default ProductList;

@@ -49,7 +49,7 @@ const ProductForm: React.FC = () => {
   }, [productos]);
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="flex-col flex">
         <div>
           <label htmlFor="name">Name:</label>
           <input
